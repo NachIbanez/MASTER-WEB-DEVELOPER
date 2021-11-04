@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>HOLA MUNDO</title>
+    </head>
+    <body>
+        <h1>HOLA MUNDO WEB</h1>
+        <p>
+            <strong>texto en negrita</strong>
+            <br>
+            <em>texto en cursiva</em>
+            <br>
+            <i>texto en cursiva también</i>
+            <br>
+            <span id="texto-random" class="texto-random">texto con identificador y clase dentro de un span</span>
+            <hr>
+            <blockquote>
+                texto en forma de cita
+            </blockquote>
+            <hr>
+            <ol>
+                <p>lista ordenada de frutas</p>
+                <li>pera</li>
+                <li>naranja</li>
+                <li>melon</li>
+            </ol>
+            <ul>
+                <p>lista desordenada de deportes</p>
+                <li>fútbol</li>
+                    <ul>
+                        <li>futbol 11</li>
+                        <li>futbol 7</li>
+                        <li>futbol sala</li>
+                    </ul>
+                <li>baloncesto</li>
+                <li>tenis</li>
+                <li>bádminton</li>
+            </ul>
+            <img src="gato.jpg" alt="texto por si la imagen no carga" width="300px" height="200px">
+        </p>
+        <h3>TABLAS</h3>
+        <table border="2">
+            <tr>
+                <th>Nombre</th>
+                <th>Color</th>
+            </tr>
+            <tr>
+                <td colspan="1">Tigretón</td>
+                <td>Naranja</td>
+            </tr>
+        </table>
+        <hr>
+        <h3>Formulario</h3>
+        <form>
+            <p>
+                <label for="nombre">Nombre del formulario </label>
+                <input type="text" name="nombre" placeholder="Escribe tu nombre">
+            </p>
+            <p>
+                <label for="descripcion"></label>
+                <textarea name="descripcion" rows="8" cols="80"></textarea>
+            </p>
+
+            <input type="radio" name="genero" value="hombre">Hombre
+            <br>
+            <input type="radio" name="genero" value="hombre">Mujer
+            <br>
+            <select name="genero2">
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+            </select>
+
+            <input type="submit" name="enviar" value="enviar formulario">
+
+        </form>
+    </body>
+</html>
