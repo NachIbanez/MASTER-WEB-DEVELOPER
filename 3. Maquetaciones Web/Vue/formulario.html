@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>Maquetación para el Master en Frameworks JavaScript</title>
+        <!--HOJA DE ESTILOS-->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    </head>
+    <body>
+        <!-- CABECERA -->
+        <header id="header">
+            <div class="center">
+                <!-- LOGO -->
+                <div id="logo">
+                    <img src="assets/imagenes/Vue.svg" class="app-logo" alt="Logotipo" />
+                    <span id="brand">
+                        <strong>Master</strong>Vue
+                    </span>
+                </div>
+
+                <!-- MENU -->
+                <nav id="menu">
+                    <ul>
+                        <li>
+                            <a href="index.html">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="blog.html">Blog</a>
+                        </li>
+                        <li>
+                            <a href="formulario.html">Formulario</a>
+                        </li>
+                        <li>
+                            <a href="#">Pagina 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Pagina 2</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- LIMPIAR ELEMENTOS FLOTANTES/FLOATS -->
+                <div class="clearfix"></div>
+            </div>
+        </header>
+
+        <div class="center">
+            <!-- Contenido Central -->
+            <section id="content">
+                <h1 class="subheader">Formulario</h1>
+                <form class="mid-form" action="index.html" method="post">
+                    <div class="form-group">
+                        <label for="nombre">Nombre: </label>
+                        <input type="text" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos: </label>
+                        <input type="text" name="apellidos">
+                    </div>
+                    <div class="form-group">
+                        <label for="biografia">Biografia: </label>
+                        <textarea name="biografia" rows="8" cols="80"></textarea>
+                    </div>
+                    <div class="form-group radiobuttons">
+                        <input type="radio" name="genero" value="hombre">Hombre</input>
+                        <input type="radio" name="genero" value="mujer">Mujer</input>
+                    </div>
+                    <div class="clearfix"></div>
+                    <input type="submit" value="Enviar" class="btn btn-success">
+                </form>
+            </section>
+
+            <!-- Barra Lateral de navegacion -->
+            <aside id="sidebar">
+                <div id="nav-blog" class="sidebar-item">
+                    <h3>Puedes hacer esto</h3>
+                    <a href="#" class="btn btn-success">Crear artículo</a>
+                </div>
+
+                <div id="search" class="sidebar-item">
+                        <h3>Buscador</h3>
+                        <p>Encuentra el artículo que buscas</p>
+                        <form>
+                            <input type="text" name="search" />
+                            <input type="submit" name="submit" value="Buscar" class="btn btn-search" />
+                        </form>
+                </div>
+            </aside>
+
+            <div class="clearfix"></div>
+        </div>
+
+        <!-- Pie de Pagina-->
+        <footer id="footer">
+            <div class="center">
+                <p>
+                    &copy; Máster en frameworks para JavaScript
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
