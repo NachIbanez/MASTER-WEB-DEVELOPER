@@ -1,0 +1,76 @@
+<app-slider
+  [nombre]="'Pagina de Prueba con Animalitos'"
+  [size]="'small'"
+></app-slider>
+
+<div class="center">
+
+  <section id="content">
+
+    <div id="favorito" *ngIf="favorito">
+        <h2 class="subheader">
+            Animal Favorito
+        </h2>
+        <h4>{{favorito.nombre | uppercase}}</h4> <!-- | es un pipe que aplica pequeñas funcionalidades a strings o numeros, en este caso lo pone todo en mayusculas-->
+        <h4>{{favorito.year | espar}}</h4>
+        <h5>{{this.fecha | date: "fullDate"}}</h5>
+        <img src="{{favorito.image}}" alt="Imagen del animal">
+
+    </div>
+
+    <h1 class="subheader">Pagina de Prueba</h1>
+
+    <!--
+    <div *ngIf="nombre && color ; then siHayParametros ; else noHayParametros">
+      <!-- Aplicamos directivas a un div, primero el ngIf y luego aplicamos un then y un else a una directiva tipo ngTemplate que se definen a continuacion con un id determinado-->
+    <!--
+    </div>
+
+    <ng-template #siHayParametros>
+      <h2>El nombre es: {{nombre}}</h2>
+      <h3>Es de color: {{color}}</h3>
+    </ng-template>
+
+    <ng-template #noHayParametros>
+      <h2>No hay datos por la url <!-- Probar escribiendo: pagina/nombre/apellidos </h2>
+      <button (click)="redireccion()">Añadir nombre y color</button>
+    </ng-template>
+
+    <hr>
+
+    <h2>Animal 1</h2>
+    {{animales[0].nombre}}
+    <h2>Animal 2</h2>
+    {{animales[1].nombre}}
+    <h2>Animal 3</h2>
+    {{animales[2].nombre}}
+
+    <h2>Número de Animales</h2>
+
+    <div *ngIf="animales.length <= 2">
+      <h4> hay poco animales listados: </h4>
+    </div>
+
+    <div *ngIf="animales.length >= 2">
+      <h4> hay muchos animales listados: </h4>
+    </div>
+
+    {{animales.length}}
+    -->
+    <h2 class="subheader">Listado de animalitos</h2>
+    <!-- *ngIf - Directiva condicional-->
+    <!-- *ngFor - Directiva estructural para recorrer array animales, por cada iteracion en animales crear una variable animal correspondiente a cada uno de los elementos del array-->
+    <!-- la variable i correspondera al indice del bucle (de 0 hasta el final de éste)-->
+    <div id="articles" *ngIf="animales">
+      <div *ngFor="let animal of animales; let i = index">
+        <app-animal
+          [animal]="animal"
+          (MarcarFavorita)="mostrarFavorita($event)"
+        ></app-animal>
+      </div>
+    </div>
+
+  </section>
+
+  <app-sidebar></app-sidebar>
+</div>

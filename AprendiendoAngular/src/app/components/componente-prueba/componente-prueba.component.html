@@ -1,0 +1,9 @@
+<!-- Template/Vista del componente de prueba -->
+    <h1> {{titulo}} </h1>
+    <h2> {{year}} </h2>
+    <p> {{comentario}} </p>
+
+    <button (click)="ocultarComponente()">Ocultar titulo, año y comentario</button>
+    <div *ngIf="mostrarComponente">
+      <app-componente-creado-cli></app-componente-creado-cli>
+    </div>

@@ -1,0 +1,27 @@
+<article class="article-item">
+  <div class="image-wrap">
+    <img src="{{animal.image}}" alt="{{animal.nombre}}" />
+  </div>
+
+  <h2>{{animal.nombre}}</h2>
+  <span class="date">
+    Hace 5 minutos
+  </span>
+  <!--
+      <span class="year" [style.background]="animal.year >= 2020 ? 'green' : 'red'"> <!-- ngStyle [style] - Directiva para aplicar estilos en funcion a una condicion--
+          {{animal.year}}
+      </span>
+      -->
+  <span class="year" [ngClass]="{ 'year-green': animal.year == 2021, 'year-red': animal.year <= 2020}">
+    <!-- ngClass [ngClass] - Directiva para aplicar estilos con una clase en css, es mejor practica usar ngClass que ngStyle-->
+    {{animal.year}}
+  </span>
+
+  <a href="#">Leer más</a>
+
+  <button class="btn-fav" (click)="seleccionar($event, animal)">
+    Seleccionar como favorito
+  </button>
+
+  <div class="clearfix"></div>
+</article>

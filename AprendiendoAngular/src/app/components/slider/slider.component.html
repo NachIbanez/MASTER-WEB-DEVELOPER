@@ -1,0 +1,8 @@
+<!-- Aplicaremos diferentes estilos css ya creados en style.css al slider en funcion de la propiedad size que le pasemos para tener diferentes estilos del slider en funcion a la pagina donde naveguemos-->
+<div id="slider" [ngClass]="{
+  'slider-big': !size || size == 'big',
+  'slider-small': size == 'small'
+}">
+    <h1>{{nombre}}</h1>
+    <a [routerLink]="['/blog']" class="btn-white" *ngIf="!size || size=='big'">Ir al blog</a> <!--Si la propiedad size no existe o es "big" no se mostrara el boton-->
+</div>

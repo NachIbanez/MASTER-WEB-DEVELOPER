@@ -23,9 +23,10 @@ router.get("/articles/:last?", ArticleController.getArticles); // /:last? es un 
 router.get("/article/:id", ArticleController.getArticle);
 router.put("/article/:id", ArticleController.update);
 router.delete("/article/:id", ArticleController.delete);
-router.post("/upload-image/:id", md_upload, ArticleController.upload); // se le añade el middleware que se le va a aplicar para que pueda procesar los archivos que se le envien
+router.post("/upload-image/:id?", md_upload, ArticleController.upload); // se le añade el middleware que se le va a aplicar para que pueda procesar los archivos que se le envien
 router.get("/get-image/:image", ArticleController.getImage);
-router.get("/search/:search", ArticleController.search)
+router.get("/search/:search", ArticleController.search);
+
 
 //exportar modulo para poder utilizarlo en cualquier parte
 module.exports = router;

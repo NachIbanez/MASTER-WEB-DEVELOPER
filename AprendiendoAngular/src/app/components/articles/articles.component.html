@@ -1,0 +1,27 @@
+<!-- Crearemos un efecto de carga hasta que el array articles está operativo -->
+<div class="loading" *ngIf="!articles">
+  Cargando artículos...
+</div>
+
+<!-- Cuando no se encuentren coincidencias mostraremos un mensaje adecuado a ello, ya que el array articles estará vacío -->
+<div class="loading" *ngIf="articles && articles.length == 0">
+  No se han encontrado coincidencias de búsqueda
+</div>
+
+<!-- Creamos un componente articulos que sera nuestra lista de articulos que mostraremos en el componente padre blog -->
+<div id="articles" *ngIf="articles">
+  <article class="article-item" id="article-template" *ngFor="let article of articles">
+    <div class="image-wrap">
+      <img src="{{url + 'get-image/' + article.image}}" alt="{{article.title}}" *ngIf="article.image">
+      <img src="assets/imagenes/animales_default.jpg" alt="{{article.title}}" *ngIf="!article.image">
+    </div>
+
+    <h2>{{article.title}}</h2>
+    <span class="date">
+      {{article.date | amLocale: "es" | amTimeAgo}} <!--Usamos libreria ngx-moment para formatear fechas (compatible con Angular7+)-->
+    </span>
+    <a [routerLink]="['/blog/articulo', article._id]">Leer más</a>
+
+    <div class="clearfix"></div>
+  </article>
+</div>

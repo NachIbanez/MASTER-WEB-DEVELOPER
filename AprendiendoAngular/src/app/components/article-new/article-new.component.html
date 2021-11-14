@@ -1,0 +1,54 @@
+<div class="center">
+
+  <section id="content">
+
+    <h1 class="subheader">{{page_title}}</h1>
+
+    <!-- Con ngSubmit vinculamos el formulario a un metodo de la clase del componente -->
+    <!-- Con #articleForm="ngForm" podremos recoger los datos del formulario a su correspondiente campo-->
+    <form class="mid-form" #articleForm="ngForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="title">Título</label>
+        <!-- Empleando [(ngModel)] establecemos un binding bidereccional (input + output) y cargamos en la propiedad user el campo correspondiente a este input del formulario, en este caso es nombre-->
+        <input type="text" name="title" #title="ngModel" [(ngModel)]="article.title" required> <!-- Con required hacemos que sean campos input obligatorios de rellenar y con pattern permitiremos unicamente letras de la a la la z-->
+
+        <small *ngIf="!title.valid && title.touched"> El título no es válido</small>
+      </div>
+
+      <div class="form-group">
+        <label for="content">Contenido</label>
+        <textarea name="content" rows="8" cols="80" #content="ngModel" [(ngModel)]="article.content" required></textarea>
+
+        <small *ngIf="!content.valid && content.touched"> El contenido no es válido</small>
+      </div>
+
+      <div class="form-group">
+
+        <div class="image-thumb" *ngIf="is_edit">
+          <img src="{{url + 'get-image/' + article.image}}" alt="{{article.title}}" *ngIf="article.image">
+          <img src="assets/imagenes/animales_default.jpg" alt="{{article.title}}" *ngIf="!article.image">
+        </div>
+
+        <!-- Componente importado angular-file-uploader para subir archivos, la funcion afuConfig la configuramos en el .ts -->
+        <angular-file-uploader [config]="afuConfig" (ApiResponse)="imageUpload($event)"></angular-file-uploader>
+
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div id="datos-al-vuelo" *ngIf="article.title && article.content">
+        <h5> Datos del artículo creados</h5>
+        <ol>
+          <li>{{article.title}}</li>
+          <li>{{article.content}}</li>
+        </ol>
+      </div>
+
+      <input type="submit" value="Guardar" class="btn btn-success" [disabled]="articleForm.invalid">
+    </form>
+
+  </section>
+
+  <app-sidebar></app-sidebar>
+</div>

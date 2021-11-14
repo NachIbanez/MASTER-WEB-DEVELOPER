@@ -1,0 +1,17 @@
+<aside id="sidebar">
+        <div id="nav-blog" class="sidebar-item">
+            <h3>Puedes hacer esto</h3>
+            <a [routerLink]="['/blog/crear']" class="btn btn-success">Crear artículo</a>
+        </div>
+
+        <div id="search" class="sidebar-item">
+                <h3>Buscador</h3>
+                <p>Encuentra el artículo que buscas</p>
+                <form #searchForm="ngForm" (ngSubmit)="goSearch()"> <!-- Añadiremos un nombre al formulario de busqueda y le añadiremos una funcionalidad con ngSubmit-->
+                    <input type="text" name="search" [(ngModel)]="searchString" /> <!-- Con ngModel podremos modificar la propiedad searchString de nuestro modelo con un binding birideccional [()]-->
+                    <input type="submit" name="submit" value="Buscar" class="btn btn-search" />
+                </form>
+        </div>
+    </aside>
+
+    <div class="clearfix"></div>

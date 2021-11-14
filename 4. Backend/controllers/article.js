@@ -61,7 +61,11 @@ var controller = {
             // hacia el objeto vacio modelo articulo recien creado
             article.title = params.title;
             article.content = params.content;
-            article.image = null;
+            if (params.image) {
+              article.image = params.image;
+            } else {
+              article.image = null;
+            }
             // Guardar el articulo en la Base de Datos
             article.save((err, articleStored) => {
                 if (err || !articleStored){
@@ -206,7 +210,7 @@ var controller = {
                 }
 
                 return res.status(200).send({
-                    status: "error",
+                    status: "success",
                     article: articleUpdated
                 });
             });
@@ -292,21 +296,29 @@ var controller = {
             // Si es formato correcto sacamos el id del archivo subido
             var articleId = req.params.id;
 
-            // Buscar el articulo, asignarle el nombre de la imagen y actualizarlo
-            Article.findOneAndUpdate({_id: articleId}, {image: file_name}, {new: true}, (err, articleUpdated) => {
+            if (articleId) {
+              // Buscar el articulo, asignarle el nombre de la imagen y actualizarlo
+              Article.findOneAndUpdate({_id: articleId}, {image: file_name}, {new: true}, (err, articleUpdated) => {
 
-                if(err || !articleUpdated){
-                    return res.status(404).send({
-                        status: "error",
-                        message: "Error al guardar la imagen de articulo"
-                    });
-                }
+                  if(err || !articleUpdated){
+                      return res.status(404).send({
+                          status: "error",
+                          message: "Error al guardar la imagen de articulo"
+                      });
+                  }
 
-                return res.status(200).send({
-                    status: "success",
-                    article: articleUpdated
-                });
-            });
+                  return res.status(200).send({
+                      status: "success",
+                      article: articleUpdated
+                  });
+              });
+            } else {
+              return res.status(200).send({
+                  status: "success",
+                  image: file_name
+              });
+            }
+
         }
     },
 

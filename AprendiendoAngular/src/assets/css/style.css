@@ -1,0 +1,498 @@
+body {
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  /*FUENTES, el smoothing es para eliminar bordes de sierra de las fuentes
+    en diferentes navegadores y sistemas operativos*/
+  font-family: Georgia;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-smoothing: antialiased;
+}
+
+.center {
+  width: 75%;
+  margin: 0px auto;
+}
+
+/*Limpiar elementos flotantes, es decir, hacer que los siguientes bloques
+no se monten sobre los anteriores creados o al lado, siempre estaran debajo.
+Así la barra de navegacion navBar nunca se vera afectada por codigo posterior*/
+.clearfix {
+  clear: both;
+  float: none;
+}
+
+#header {
+  height: 120px;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  border-top: 5px solid #F53232;
+  background: white;
+}
+
+#logo {
+  width: 30%;
+  font-size: 30px;
+  float: left;
+  margin-top: 35px;
+}
+
+#logo img {
+  display: block;
+  float: left;
+  height: 60px;
+  margin-top: -9px;
+  margin-right: -10px;
+  /*Animacion de duracion infinita a velocidad lineal o constante
+    se repetirá cada 30 segundos*/
+  animation: latir infinite 3s linear;
+}
+
+/*función de animacion, los porcentajes muestran el avance de la animacion,
+quiere decir que si dura x segundos, los porcentajes hacen referencia a esos
+segundos, realizando un cambio progresivo de los parametros insertados.
+Tambien se puede dar la orden from-to, que significa desde que empieza hasta
+que acaba*/
+@keyframes latir {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.03, 1.03);
+  }
+
+  55% {
+    transform: scale(0.94, 0.94);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+#brand {
+  display: block;
+  margin: 0px;
+  margin-top: 5px;
+  margin-left: 10px;
+  float: left;
+}
+
+#lista {
+  list-style: none;
+}
+
+#menu {
+  width: 70%;
+  float: right;
+  font-size: 18px;
+}
+
+#menu ul {
+  line-height: 85px;
+  width: 60%;
+  float: right;
+}
+
+#menu ul li {
+  display: inline-block;
+  height: 46px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#menu a {
+  text-decoration: none;
+  color: #444;
+  transition: 300ms all;
+}
+
+/*Efecto al pasar por encima del boton - hover*/
+#menu a:hover, .active {
+  color: #F53232 !important;
+}
+
+.year-green {
+  display: block;
+  background: lightgreen;
+  color: white;
+  text-align: center;
+  width: 172px;
+  margin-bottom: 5px;
+}
+
+.year-red {
+  display: block;
+  background: red;
+  color: white;
+  text-align: center;
+  width: 172px;
+  margin-bottom: 5px;
+}
+
+#slider {
+  width: 100%;
+  height: 350px;
+  color: white;
+  text-shadow: 0px 0px 5px #444;
+  /*DEGRADADO CSS realizado en cssmatic*/
+  background: rgba(214, 74, 50, 1);
+  background: -moz-linear-gradient(left, rgba(214, 74, 50, 1) 0%, rgba(214, 74, 50, 1) 16%, rgba(246, 41, 12, 1) 39%, rgba(255, 21, 0, 1) 52%, rgba(240, 47, 23, 1) 66%, rgba(224, 76, 56, 1) 88%, rgba(224, 76, 56, 1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(214, 74, 50, 1)), color-stop(16%, rgba(214, 74, 50, 1)), color-stop(39%, rgba(246, 41, 12, 1)), color-stop(52%, rgba(255, 21, 0, 1)), color-stop(66%, rgba(240, 47, 23, 1)), color-stop(88%, rgba(224, 76, 56, 1)), color-stop(100%, rgba(224, 76, 56, 1)));
+  background: -webkit-linear-gradient(left, rgba(214, 74, 50, 1) 0%, rgba(214, 74, 50, 1) 16%, rgba(246, 41, 12, 1) 39%, rgba(255, 21, 0, 1) 52%, rgba(240, 47, 23, 1) 66%, rgba(224, 76, 56, 1) 88%, rgba(224, 76, 56, 1) 100%);
+  background: -o-linear-gradient(left, rgba(214, 74, 50, 1) 0%, rgba(214, 74, 50, 1) 16%, rgba(246, 41, 12, 1) 39%, rgba(255, 21, 0, 1) 52%, rgba(240, 47, 23, 1) 66%, rgba(224, 76, 56, 1) 88%, rgba(224, 76, 56, 1) 100%);
+  background: -ms-linear-gradient(left, rgba(214, 74, 50, 1) 0%, rgba(214, 74, 50, 1) 16%, rgba(246, 41, 12, 1) 39%, rgba(255, 21, 0, 1) 52%, rgba(240, 47, 23, 1) 66%, rgba(224, 76, 56, 1) 88%, rgba(224, 76, 56, 1) 100%);
+  background: linear-gradient(to right, rgba(214, 74, 50, 1) 0%, rgba(214, 74, 50, 1) 16%, rgba(246, 41, 12, 1) 39%, rgba(255, 21, 0, 1) 52%, rgba(240, 47, 23, 1) 66%, rgba(224, 76, 56, 1) 88%, rgba(224, 76, 56, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d64a32', endColorstr='#e04c38', GradientType=1);
+}
+
+#slider h1 {
+  margin-top: 0.2px;
+  /*Solucionar el alineamiento de texto en otros navegadores*/
+  padding: 0px;
+  padding-top: 130px;
+  text-align: center;
+}
+
+.btn-white {
+  color: black;
+  display: block;
+  background: white;
+  padding: 10px;
+  width: 150px;
+  height: 30px;
+  margin: 0px auto;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: none;
+  line-height: 25px;
+  box-shadow: 0px 0px 5px #ccc;
+  margin-top: 80px;
+  border-radius: 10px;
+  transition: 300ms all;
+}
+
+.btn-white:hover {
+  background: #444;
+  color: white;
+}
+
+#slider.slider-small {
+  height: 150px;
+}
+
+#slider.slider-small h1 {
+  margin-top: 0.2px;
+  /*Solucionar el alineamiento de texto en otros navegadores*/
+  padding: 0px;
+  padding-top: 55px;
+  text-align: center;
+}
+
+#content {
+  width: 70%;
+  float: left;
+  min-height: 450px;
+  margin-right: 20px;
+}
+
+#sidebar {
+  width: 25%;
+  float: left;
+}
+
+.sidebar-item {
+  background: #f7f7f7;
+  padding: 25px;
+  padding-bottom: 35px;
+  margin-top: 30px;
+}
+
+.sidebar-item h3 {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 0px;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #ccc;
+}
+
+.btn {
+  max-width: 130px;
+  background: black;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 13px;
+  margin: 0px auto;
+  margin-top: 15px;
+  transition: 300ms all;
+  border-radius: 10px;
+  border: none;
+}
+
+.btn-fav {
+  display: block;
+  background: #FFF35F;
+  color: black;
+  padding: 15px;
+}
+
+.btn-success {
+  background: rgb(23, 150, 19);
+}
+
+.btn-success:hover {
+  background: black;
+}
+
+.btn-search:hover {
+  background: rgb(23, 150, 19);
+}
+
+.btn-warning {
+  background: rgb(238, 165, 6);
+  color: white !important;
+  text-decoration: none
+}
+
+.btn-warning:hover {
+  transition: all 300ms;
+  opacity: 0.8;
+}
+
+.btn-danger {
+  background: rgb(201, 21, 21);
+  color: white !important;
+  text-decoration: none
+}
+
+.btn-danger:hover {
+  transition: all 300ms;
+  opacity: 0.8;
+}
+
+.buttons {
+  margin-top: 40px;
+}
+
+.afu-attach-pin { /* Estilo css para la clase del boton creado por la libreria angular-file-uploader*/
+  display: block !important;
+  width: 100% !important;
+  max-width: 90% !important;
+}
+
+.image-thumb img{
+  width: 300px;
+}
+
+input[type="text"], input[type="file"], textarea {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #ccc;
+  padding: 3px;
+  margin: 2px;
+  transition: 300ms all;
+}
+
+/*Efecto al hacer click en el input de texto y textarea - focus*/
+input[type="text"]:focus, textarea:focus {
+  box-shadow: 0px 0px 10px #bababa inset;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  min-width: 100%;
+  min-height: 150px;
+  max-width: 100%;
+  max-height: 350px;
+}
+
+.mid-form {
+  width: 50%;
+  margin: 0px auto;
+}
+
+.mid-form label {
+  display: block;
+  float: left;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.mid-form .radiobuttons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  float: left;
+}
+
+#footer {
+  background: #f7f7f7;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  color: #444;
+}
+
+.article-item {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: left;
+}
+
+.article-item .image-wrap {
+  width: 170px;
+  height: 170px;
+  overflow: hidden;
+  float: left;
+  margin-right: 15px;
+  border: 1px solid #ccc;
+}
+
+.article-item .image-wrap img {
+  height: 100%;
+  text-align: center;
+}
+
+.article-item h2 {
+  display: block;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.article-item .date {
+  display: block;
+  width: 100%;
+  color: rgb(110, 110, 110)
+}
+
+.article-item a {
+  color: #444;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+.article-item a:hover {
+  text-decoration: underline;
+}
+
+.subheader {
+  font-size: 40px;
+  border-bottom: 1px solid #ccc;
+}
+
+.article-detail .image-wrap {
+  float: none;
+  width: 100%;
+  height: 500px;
+}
+
+.article-detail .image-wrap img {
+  width: 100%;
+  height: auto;
+}
+
+.article-detail .subheader {
+  border: none;
+  margin-bottom: 10px;
+}
+
+/* RESPONSIVE WEB - Ajustar nuestra maquetacion a pantallas de diferentes tamaños */
+/*Funcion mediaquery Desde la anchura 0px hasta la anchura 1508px de pantalla,
+que es cuando se descuadra el primer elemento de la lista de la cabecera*/
+@media (max-width: 1508px) {
+  .center {
+    width: 90%;
+  }
+
+  #menu ul {
+    width: auto;
+  }
+}
+
+@media (max-width: 1006px) {
+  #logo {
+    float: none;
+    width: 300px;
+    margin: 0px auto;
+    margin-top: 20px;
+  }
+
+  #menu, #menu ul {
+    clear: both;
+    float: none;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    line-height: 40px;
+  }
+
+  #content {
+    float: none;
+    width: 100%;
+  }
+
+  #sidebar {
+    float: none;
+    width: 60%;
+    margin: 0px auto;
+    margin-bottom: 50px;
+  }
+
+  #slider h1 {
+    padding-top: 110px;
+    font-size: 25px;
+  }
+
+  .mid-form {
+    width: 70%;
+  }
+}
+
+@media (max-width: 528px) {
+  #header {
+    min-height: 130px;
+    overflow: hidden;
+  }
+
+  #menu, #menu ul {
+    line-height: 50px;
+  }
+
+  #menu ul li {
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+
+  #slider {
+    height: 200px;
+  }
+
+  #slider h1 {
+    font-size: 20px;
+    padding-top: 30px;
+  }
+
+  #slider .btn-white {
+    margin-top: 10px;
+  }
+
+  #slider.slider-small {
+    height: 60px;
+  }
+
+  #slider.slider-small h1 {
+    padding-top: 20px;
+  }
+}
